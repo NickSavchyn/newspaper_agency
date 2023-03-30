@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <h1>Newspaper agency "News4All"</h1>
+        <p>Welcome to the best newspaper website!</p>
+        <p>Our agency provides the following:</p>
+        <ul>
+            <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
+            <li><strong>Redactors:</strong> {{ num_redactors }}</li>
+            <li><strong>Topics:</strong> {{ num_topics }}</li>
+        </ul>
+
+        <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+</html>
