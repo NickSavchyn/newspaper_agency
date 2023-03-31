@@ -14,7 +14,7 @@ def index(request):
 
     num_topics = Topic.objects.count()
     num_newspapers = Newspaper.objects.count()
-    new_redactors = Redactor.objects.count()
+    num_redactors = Redactor.objects.count()
 
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
@@ -22,7 +22,7 @@ def index(request):
     context = {
         "num_topics": num_topics,
         "num_newspapers": num_newspapers,
-        "new_redactors": new_redactors,
+        "num_redactors": num_redactors,
         "num_visits": num_visits + 1
     }
 

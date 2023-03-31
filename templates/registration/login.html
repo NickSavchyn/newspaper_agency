@@ -1,40 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h1>Login</h1>
 
-{% if form.errors %}
-  <div class="alert alert-danger" role="alert">
-    Your username and password didn't match. Please try again.
-  </div>
-{% endif %}
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
 
-<div class="card">
-  <div class="card-header">
-    <h1 class="card-title">Login</h1>
-    {% if next %}
-      <p class="card-text">Please login to see this page.</p>
-    {% endif %}
-  </div>
-
-  <div class="card-body">
-    <form method="post" action="{% url "login" %}">
-      {% csrf_token %}
-
-      <div class="form-group">
-        <label for="{{ form.username.id_for_label }}">Username:</label>
-        {{ form.username }}
-      </div>
-
-      <div class="form-group">
-        <label for="{{ form.password.id_for_label }}">Password:</label>
-        {{ form.password }}
-      </div>
-
-      <input type="hidden" name="next" value="{{ next }}" />
-
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-</div>
-
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
 {% endblock %}
