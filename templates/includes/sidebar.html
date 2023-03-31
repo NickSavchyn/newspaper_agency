@@ -1,14 +1,19 @@
-<ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
+<div class="row">
+  <div class="col-md-2">
+    {% if user.is_authenticated %}
 
-
-  <li class="list-group-item"><a href="{% url 'newspaper_agency:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'newspaper_agency:newspaper-list' %}">All newspapers</a></li>
-  <li class="list-group-item"><a href="{% url 'newspaper_agency:topic-list' %}">All topic</a></li>
-  <li class="list-group-item"><a href="{% url 'newspaper_agency:redactor-list' %}">All redactors</a></li>
-</ul>
+      <p class="text-muted" style="font-size: 1.2rem; font-weight: bold;">User: <a href="{{ user.get_absolute_url }}" style="color: #e91e63; font-weight: bold">{{ user.get_username }}</a></p>
+      <p><a href="{% url 'logout'%}?next={{request.path}}" style="color: #e91e63; font-size: 1.2rem; font-weight: bold">Logout</a></p>
+    {% else %}
+      <p><a href="{% url 'login'%}?next={{request.path}}" style="color: #e91e63; font-size: 1.2rem;">Login</a></p>
+    {% endif %}
+  </div>
+  <div class="col-md-10">
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link" href="{% url 'newspaper_agency:index' %}" style="font-size: 1.4rem; font-family: Arial, sans-serif; font-weight: bold;">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'newspaper_agency:newspaper-list' %}" style="font-size: 1.4rem; font-family: Arial, sans-serif; font-weight: bold;">All newspapers</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'newspaper_agency:topic-list' %}" style="font-size: 1.4rem; font-family: Arial, sans-serif; font-weight: bold";>All topics</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'newspaper_agency:redactor-list' %}" style="font-size: 1.4rem; font-family: Arial, sans-serif; font-weight: bold;">All redactors</a></li>
+    </ul>
+  </div>
+</div> 
