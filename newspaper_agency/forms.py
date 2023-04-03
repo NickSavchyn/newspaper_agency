@@ -30,5 +30,3 @@ class RedactorUpdateForm(forms.ModelForm):
     class Meta:
         model = Redactor
         fields = "__all__"
-
-
